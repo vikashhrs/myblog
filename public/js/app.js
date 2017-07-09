@@ -9,10 +9,8 @@ app.config(function($routeProvider) {
         })
         .when("/contact", {
             templateUrl : "./contact.html"
-        })
-        .when("/blue", {
-            templateUrl : "blue.htm"
         });
+
 });
 
 
