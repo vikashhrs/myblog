@@ -6,7 +6,14 @@ var app = express();
 app.use(express.static('public'));
 
 app.get("/",function(req,res){
+	console.log(__dirname);
 	res.status(200).send('/public/index.html');
+});
+
+
+app.get("/dashboard",function(req,res){
+    console.log(__dirname);
+    res.status(200).sendFile(__dirname + '/public/dashboard.html');
 });
 
 app.listen(PORT,function(){
