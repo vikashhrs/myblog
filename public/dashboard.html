@@ -2,15 +2,34 @@
 <html>
 	<head>
 		<title>Add Blog Dashboard</title>
-		<!------- ---------JvaScrip file -->
+
+		<script type="text/javascript" src="js/angular.js"></script>
+		<script type="text/javascript" src="js/angular-route.js"></script>
+		<script type="text/javascript" src="js/dashboardApp.js"></script>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
 
 	</head>
-	<body>
+	<body class="container" ng-app="myApp">
+	<h1 style="text-align: center;">Create Post</h1>
+		<div class="container" ng-controller="MainController">
+			<form method="post" >
+				<textarea  id="myarea1" class="tinymce" ui-tinymce="tinymceOptions" ng-model="tinymceModel"></textarea>
+				<button ng-click="getContent()">Get content</button>
+				<button ng-click="setContent()">Set content</button>
+			</form>
+			<br /><br />
+			<button class="btn-lg btn-info" style="width: 100%;" ng-click="content()">Post It</button>
+		</div>
 
-		<textarea class="tinymce"></textarea>
 
-		<script type="text/javascript" src="js/jquery.min.js"/>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.6.4/jquery.tinymce.min.js"/>
-		<script type="text/javascript" src="plugin/tinymce/init.tinymce.js"/>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="plugin/tinymce/tinymce.min.js"></script>
+		<script type="text/javascript" src="plugin/tinymce/init-tinymce.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-tinymce/0.0.19/tinymce.js"></script>
+
+
+
 	</body>
+
+
 </html>

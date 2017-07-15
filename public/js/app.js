@@ -15,10 +15,7 @@ app.config(function ($routeProvider) {
         })
         .when("/expand", {
             templateUrl: "./single.html"
-        })
-        .when("/dashboard", {
-        templateUrl: "./dashboard.html"
-    });
+        });
 
 });
 
@@ -26,5 +23,6 @@ app.config(function ($routeProvider) {
 app.controller('MainController', function ($scope) {
     $scope.firstName = "John";
     $scope.lastName = "Doe";
+
     console.log("Working");
 });
