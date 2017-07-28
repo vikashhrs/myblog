@@ -934,7 +934,6 @@ blockquote {
 }
 
 .subscribe-form {
-	margin-bottom: 15px;
 	position: relative;
 }
 
@@ -1013,8 +1012,8 @@ blockquote {
     background: url(../images/bg/pattern-bg.png);
     background-repeat: repeat;
     text-align: center;
-    padding: 30px 0;
-    margin-top: 10px;
+    padding: 10px 0;
+
 }
 
 .footer p {
