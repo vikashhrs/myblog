@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 
 app.use(express.static('public'));
 
-mongoose.connect("mongodb://localhost:27017/myblog");
+//mongoose.connect("mongodb://localhost:27017/myblog");
 app.get("/",function(req,res){
 	console.log(__dirname);
 	res.status(200).send('/public/index.html');
