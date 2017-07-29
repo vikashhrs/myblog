@@ -46,8 +46,16 @@ app.post('/postadd/add-a-new-post',function (req,res) {
 
 });
 
+app.get('/get/all/posts',function (req,res) {
+    Post.find(function (err,posts) {
+        if(err)
+            throw err;
+        else
+            res.send({results : posts});
+    });
+});
+
 app.listen(PORT,function(){
 	console.log("Server running on port 3000");
-    console.log("Server running on port 3000");
-    console.log("Server running on port 3000");
+
 });
