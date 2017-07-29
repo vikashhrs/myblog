@@ -48,4 +48,6 @@ app.post('/postadd/add-a-new-post',function (req,res) {
 
 app.listen(PORT,function(){
 	console.log("Server running on port 3000");
+    console.log("Server running on port 3000");
+    console.log("Server running on port 3000");
 });
