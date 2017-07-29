@@ -3,7 +3,7 @@
  */
 
 var mongoose = require('mongoose');
-var UserSchema = mongoose.Schema({
+var PostSchema = mongoose.Schema({
     title : {
         type : String,
         required : true
@@ -19,8 +19,12 @@ var UserSchema = mongoose.Schema({
     category : {
         type : String,
         required : true
+    },
+    dateofcreation : {
+        type : String,
+        required : true
     }
 
 
 });
-module.exports = mongoose.model('User',UserSchema);
+module.exports = mongoose.model('Post',PostSchema);
