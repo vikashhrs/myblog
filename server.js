@@ -55,6 +55,11 @@ app.get('/get/all/posts',function (req,res) {
     });
 });
 
+app.get('/get-me-my-post',function (req,res) {
+    console.log(req.body.id);
+    res.send(200);
+});
+
 app.listen(PORT,function(){
 	console.log("Server running on port 3000");
 
