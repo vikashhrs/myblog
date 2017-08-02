@@ -56,8 +56,13 @@ app.get('/get/all/posts',function (req,res) {
 });
 
 app.get('/get-me-my-post',function (req,res) {
-    console.log(req.body.id);
-    res.send(200);
+    console.log(req.headers.postid);
+    Post.findOne({_id : req.headers.postid},function (err,post) {
+        if(err)
+            throw err;
+        res.send(post);
+    })
+
 });
 
 app.listen(PORT,function(){

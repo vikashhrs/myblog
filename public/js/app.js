@@ -32,9 +32,15 @@ app.config(function ($routeProvider) {
 });
 
 
-app.run(function ($cookies, $rootScope) {
-    if ($cookies.get('currentPost')) {
-        $rootScope.currentPost = $cookies.getObject('currentPost');
+app.run(function ($cookies, $rootScope,$http) {
+    if ($cookies.getObject('currentPost')) {
+        $rootScope.currentPostId = $cookies.getObject('currentPost');
+        console.log($cookies.getObject("currentPostId"));
+
+        $http.get('/get-me-my-post',{headers : {postId : $cookies.getObject("currentPostId")}}).success(function (response) {
+            console.log(response);
+            $rootScope.currentPost = response;
+        })
     }
 });
 
@@ -61,15 +67,13 @@ app.controller('BlogsController', function ($scope,$http,$rootScope,$cookies) {
     $scope.setPost = function (post) {
         console.log("setting post"+ JSON.stringify(post));
 
-        $cookies.put("currentPost",JSON.stringify(post));
+
+        $cookies.put("currentPostId",post._id);
 
         $rootScope.currentPost = post;
-
     }
 });
 
 app.controller('ExpandController',function($scope,$rootScope,$cookies){
-
     $scope.body = $rootScope.currentPost.body;
-
 });
