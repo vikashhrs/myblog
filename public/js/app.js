@@ -33,15 +33,20 @@ app.config(function ($routeProvider) {
 
 
 app.run(function ($cookies, $rootScope,$http) {
-    if ($cookies.getObject('currentPost')) {
-        $rootScope.currentPostId = $cookies.getObject('currentPost');
-        console.log($cookies.getObject("currentPostId"));
-
-        $http.get('/get-me-my-post',{headers : {postId : $cookies.getObject("currentPostId")}}).success(function (response) {
-            console.log(response);
-            $rootScope.currentPost = response;
-        })
-    }
+    // if ($cookies.get('currentPostId')) {
+    //     $rootScope.currentPostId = $cookies.get('currentPostId');
+    //     console.log($cookies.get("currentPostId"));
+    //
+    //     $http.get('/get-me-my-post',{headers : {postId : $cookies.get("currentPostId")}}).then(function (response) {
+    //         //$rootScope.currentPost = response.data;
+    //         console.log(response);
+    //
+    //     },function (err) {
+    //
+    //     });
+    // }else{
+    //     console.log("No Cookie Present");
+    // }
 });
 
 
@@ -65,15 +70,24 @@ app.controller('BlogsController', function ($scope,$http,$rootScope,$cookies) {
     });
 
     $scope.setPost = function (post) {
-        console.log("setting post"+ JSON.stringify(post));
+        //console.log("setting post"+ JSON.stringify(post));
 
-
+        console.log("Setting cookies");
         $cookies.put("currentPostId",post._id);
 
-        $rootScope.currentPost = post;
+        //$rootScope.currentPost = post;
     }
 });
 
-app.controller('ExpandController',function($scope,$rootScope,$cookies){
-    $scope.body = $rootScope.currentPost.body;
+app.controller('ExpandController',function($scope,$rootScope,$cookies,$http){
+    console.log("Loading Expand Controller");
+
+    $http.get('/get-me-my-post',{headers : {postId : $cookies.get("currentPostId")}}).then(function (response) {
+        //$rootScope.currentPost = response.data;
+        console.log(response);
+        $scope.body = response.data.body;
+    },function (err) {
+
+    });
+
 });
