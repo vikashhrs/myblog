@@ -46,6 +46,26 @@ app.post('/postadd/add-a-new-post',function (req,res) {
 
 });
 
+app.get('/get/all/posts',function (req,res) {
+    Post.find(function (err,posts) {
+        if(err)
+            throw err;
+        else
+            res.send({results : posts});
+    });
+});
+
+app.get('/get-me-my-post',function (req,res) {
+    console.log(req.headers.postid);
+    Post.findOne({_id : req.headers.postid},function (err,post) {
+        if(err)
+            throw err;
+        res.send(post);
+    })
+
+});
+
 app.listen(PORT,function(){
 	console.log("Server running on port 3000");
+
 });

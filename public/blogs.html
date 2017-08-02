@@ -1,7 +1,6 @@
 <div class="col-md-12 page-body">
     <div class="row">
 
-
         <div class="sub-title">
             <h2>My Blog</h2>
             <a href="#!blogs"><i class="icon-envelope"></i></a>
@@ -10,45 +9,22 @@
 
         <div class="col-md-12 content-page">
 
-
             <!-- Blog Post Start -->
-            <div class="col-md-12">
+            <div class="col-md-12" ng-repeat="post in posts">
                 <div class="post-title">
-                    <a href="#!expand"><h1>How to design elegant e-mail newsletter in html for wish
-                        christmas to your subscribers?</h1></a>
+                    <a href="#!expand" ng-click="setPost(post)"><h1>{{post.title}}</h1></a>
                 </div>
                 <div class="post-info">
-                    <span>November 23, 2016 / by <a href="#" target="_blank">Alex Parker</a>  #web_development</span>
+                    <span>{{post.dateofcreation}} / by <a href="#" target="_blank" >Alex Parker</a>  #{{post.category}}</span>
                 </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae ut ratione
-                    similique temporibus tempora dicta soluta? Qui hic, voluptatem nemo quo corporis
-                    dignissimos voluptatum debitis cumque fugiat mollitia quasi quod. Lorem ipsum dolor
-                    sit amet, consectetur adipisicing elit. Molestiae ut ratione similique.</p>
+                <p>{{post.description}}</p>
                 <a href="#!expand"
-                   class="button button-style button-anim fa fa-long-arrow-right"><span>Read More</span></a>
+                   class="button button-style button-anim fa fa-long-arrow-right" ng-click="setPost(post)"><span>Read More</span></a>
             </div>
             <!-- Blog Post End -->
 
 
-            <!-- Blog Post Start -->
-            <div class="col-md-12">
 
-                <div class="post-title">
-
-                    <a href="#!expand"><h1>Make mailchimp singup form working with ajax using jquery
-                        plugin</h1></a>
-                </div>
-                <div class="post-info">
-                    <span>November 23, 2016 / by <a href="#" target="_blank">Alex Parker</a>  #web_development</span>
-                </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae ut ratione
-                    similique temporibus tempora dicta soluta? Qui hic, voluptatem nemo quo corporis
-                    dignissimos voluptatum debitis cumque fugiat mollitia quasi quod. Lorem ipsum dolor
-                    sit amet, consectetur adipisicing elit. Molestiae ut ratione similique.</p>
-                <a href="#!expand"
-                   class="button button-style button-anim fa fa-long-arrow-right"><span>Read More</span></a>
-            </div>
-            <!-- Blog Post End -->
             <div class="col-md-12 text-center">
                 <a href="javascript:void(0)" id="load-more-post" class="load-more-button">Load</a>
                 <div id="post-end-message"></div>
