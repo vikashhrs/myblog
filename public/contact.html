@@ -5,6 +5,7 @@
         <div class="sub-title">
             <h2>Contact Me</h2>
             <a href="#!/"><i class="icon-home"></i></a>
+            
         </div>
 
 
@@ -17,25 +18,18 @@
                     <h1>Looking for a <span class="main-color">online presence</span>?</h1>
                 </div>
 
-                <p>I am in the website field since 2004 Lorem ipsum dolor sit amet, consectetur
-                    adipiscing elit. Proin at quam at orci commodo hendrerit vitae nec eros. Vestibulum
-                    neque est, imperdiet nec tortor nec, tempor semper metus. <b>I am a developer</b>,
-                    et accumsan nisi. Duis laoreet pretium ultricies. Curabitur rhoncus auctor nunc
-                    congue sodales. Sed posuere nisi ipsum, eget dignissim nunc dapibus eget. Aenean
-                    elementum sollicitudin sapien ut sapien feat orci commodo hendrerit vitae nec eros. Vestibulum
-                    neque est, imperdiet nec tortor nec, tempor semper metus. <b>I am a developer</b>,
-                    et accumsan nisi. Duis laoreet pretium ultricies. Curabitur rhoncus auctor nunc
-                    congue sodales. Sed posuere nisi ipsum, eget dignissim nunc dapibus eget. Aenean
-                    elementum sollicitudin sapien ut sapien fermentumat orci commodo hendrerit vitae nec eros. Vestibulum
-                    neque est, imperdiet nec tortor nec, tempor semper metus. <b>I am a developer</b>,
-                    et accumsan nisi. Duis laoreet pretium ultricies. Curabitur rhoncus auctor nunc
-                    congue sodales. Sed posuere nisi ipsum, eget dignissim nunc dapibus eget. Aenean
-                    elementum sollicitudin sapien ut sapien fermentumat orci commodo hendrerit vitae nec eros. Vestibulum
-                    neque est, imperdiet nec tortor nec, tempor semper metus. <b>I am a developer</b>,
-                    et accumsan nisi. Duis laoreet pretium ultricies. Curabitur rhoncus auctor nunc
-                    congue sodales. Sed posuere nisi ipsum, eget dignissim nunc dapibus eget. Aenean
-                    elementum sollicitudin sapien ut sapien fermentumrmentum aliquet mollis. Curabitur ac quam
-                    orci sodales quam ut tempor.</p>
+                <p>
+                   I enjoy giving life to ideas. Learning each day has always made me going deeper and deeper into the 
+                   field of computer science. Exploring things how they are built and with what has always been something 
+                   that been my utmost pleasure. Solving real life problems keeping the solution as simple as possible is what eye
+                   in the problems I solve or try. My passion for developing applications has always made me learning new
+                   and efficient technologies. I build mobile native applications using android as well as hybrid applications using 
+                   codorova and ionic framework. Considering web applications I love to have both javascript in the frontend as well
+                   as backend for that reason I use mean stack a lot. Java, JavaScript are the language that I use a lot, writing code for
+                   data structures  and algorithms I use java a lot. Database design for applications is also something I love doing.
+                   Data science and machine learning are fields that I am learning now. Talking to people and learning from them as well
+                   sharing helps me in staying updated with lot of things happening around. Click <a href="/get-me-my-resume">here</a> to check out my resume.
+                </p>
                 <!-- Intro End -->
 
 
@@ -55,21 +49,21 @@
                     <div class="col-md-4 col-sm-4">
                         <div class="contact-us-detail">
                             <i class="icon-screen-smartphone color-6"></i>
-                            <p><a href="tel:+1234567890">+1234 567 890</a></p>
+                            <p><a href="tel:+919038761419">+91 9038761419</a></p>
                         </div>
                     </div>
 
                     <div class="col-md-4 col-sm-4">
                         <div class="contact-us-detail">
                             <i class="icon-envelope-open color-5"></i>
-                            <p><a href="mailto:name@domain.com">name@domain.com</a></p>
+                            <p><a href="mailto:name@domain.com">vikashhrs@gmail.com</a></p>
                         </div>
                     </div>
 
                     <div class="col-md-4 col-sm-4">
                         <div class="contact-us-detail">
                             <i class="icon-clock color-3"></i>
-                            <p>Mon - Fri 09:00 – 18:00</p>
+                            <p>Anytime</p>
                         </div>
                     </div>
 
@@ -80,18 +74,21 @@
                     <div class="col-md-12">
 
                         <div class="row">
-                            <form>
+                            <div ng-show="alertDisplay" class="alert alert-danger">
+                                {{alertMessage}}
+                            </div>
+                            <form ng-hide="alertSuccess">
 
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input type="text" id="name" class="form-control"
+                                        <input type="text" ng-model="name" id="name" class="form-control"
                                                placeholder="Your Name">
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input type="email" id="email" class="form-control"
+                                        <input type="email" ng-model="email" id="email" class="form-control"
                                                placeholder="Your Email">
                                     </div>
                                 </div>
@@ -100,19 +97,22 @@
 
                                 <div class="col-sm-12">
                                     <div class="textarea-message form-group">
-                                                        <textarea id="message" class="textarea-message form-control"
+                                                        <textarea id="message" ng-model="message" class="textarea-message form-control"
                                                                   placeholder="Your Message" rows="5"></textarea>
                                     </div>
                                 </div>
 
 
                                 <div class="text-center">
-                                    <button type="submit" class="load-more-button">Send</button>
+                                    <button type="submit" class="load-more-button" ng-click="saveMessage()">Send</button>
                                 </div>
 
                             </form>
                         </div>
                     </div>
+                </div>
+                <div class="alert alert-info" ng-show="alertSuccess">
+                    <p style="text-align: center">{{alertSuccessMessage}}</p>
                 </div>
                 <!-- Contact Me End -->
 

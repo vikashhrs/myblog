@@ -2,6 +2,7 @@ var express = require('express');
 var PORT = process.env.PORT || 3000;
 var mongoose = require('mongoose');
 var Post = require('./models/post');
+var Message = require('./models/message');
 var bodyParser = require('body-parser');
 
 var app = express();
@@ -9,7 +10,7 @@ app.use(bodyParser.json());
 
 app.use(express.static('public'));
 
-//mongoose.connect("mongodb://localhost:27017/myblog");
+mongoose.connect("mongodb://localhost:27017/myblog");
 app.get("/",function(req,res){
 	console.log(__dirname);
 	res.status(200).send('/public/index.html');
@@ -43,7 +44,7 @@ app.post('/postadd/add-a-new-post',function (req,res) {
 
         res.status(200).send({message : "Post Saved"});
     });
-
+ 
 });
 
 app.get('/get/all/posts',function (req,res) {
@@ -63,6 +64,24 @@ app.get('/get-me-my-post',function (req,res) {
         res.send(post);
     })
 
+});
+
+app.post('/save-user-message',function(req,res){
+    console.log(req.body.data);
+    var message = new Message(req.body.data);
+    message.save(function(err){
+        if(err){
+            console.log(err);
+            res.send({message : "Facing some techical difficulties try after some time"});
+        }else{
+            res.send({message : "Thanks!I received your message successfully will get back to you soon."})
+        }
+    })
+    
+})
+
+app.get('/get-me-my-resume',function(req,res){
+    res.sendFile(__dirname + '/public/VikashKSResume.pdf');
 });
 
 app.listen(PORT,function(){
